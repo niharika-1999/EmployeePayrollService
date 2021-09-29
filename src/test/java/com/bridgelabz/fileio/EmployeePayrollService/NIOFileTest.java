@@ -8,7 +8,6 @@ import org.junit.*;
 public class NIOFileTest {
 	private static String HOME = System.getProperty("user.home");
 	private static String PLAY_WITH_NIO = "TempPlayGround";
-
 	@Test
 	public void givenPathWhenCheckedThenConfirm() throws IOException
 	{
@@ -18,8 +17,7 @@ public class NIOFileTest {
 
 		//Delete File and check file not exists
 		Path playPath = Paths.get(HOME + "/" + PLAY_WITH_NIO);
-		if(Files.exists(playPath)) 
-			FileUtils.deleteFiles(playPath.toFile());
+		if(Files.exists(playPath)) FileUtils.deleteFiles(playPath.toFile());
 		Assert.assertTrue(Files.notExists(playPath));
 
 		//Create Directory
@@ -44,6 +42,5 @@ public class NIOFileTest {
 		Files.newDirectoryStream(playPath, path -> path.toFile().isFile() &&
 		path.toString().startsWith("temp")).forEach(System.out::println);
 	}
-
-
 }
+
