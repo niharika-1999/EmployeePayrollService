@@ -16,5 +16,12 @@ public class EmployeePayrollData {
 		this.salary = salary;
 	}
 
+	//Display method
+	public String toString()
+	{
+		return "Id = "+ id +", Name = "+ name +", Salary = Rs. "+salary;
+	}
+
+
 
 }

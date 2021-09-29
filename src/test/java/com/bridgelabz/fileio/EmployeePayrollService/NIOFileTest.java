@@ -17,7 +17,8 @@ public class NIOFileTest {
 
 		//Delete File and check file not exists
 		Path playPath = Paths.get(HOME + "/" + PLAY_WITH_NIO);
-		if(Files.exists(playPath)) FileUtils.deleteFiles(playPath.toFile());
+		if(Files.exists(playPath)) 
+			FileUtils.deleteFiles(playPath.toFile());
 		Assert.assertTrue(Files.notExists(playPath));
 
 		//Create Directory
@@ -40,7 +41,9 @@ public class NIOFileTest {
 		Files.list(playPath).filter(Files::isRegularFile).forEach(System.out::println);
 		Files.newDirectoryStream(playPath).forEach(System.out::println);
 		Files.newDirectoryStream(playPath, path -> path.toFile().isFile() &&
-		path.toString().startsWith("temp")).forEach(System.out::println);
+				path.toString().startsWith("temp")).forEach(System.out::println);
 	}
+
+
 }
 
